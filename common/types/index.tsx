@@ -10,11 +10,6 @@ export interface CustomButtonProps {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface SearchManuFacturerProps {
-  manufacturer: string;
-  setManufacturer: (manufacturer: string) => void;
-}
-
 export interface CarProps {
   city_mpg: number;
   class: string;
@@ -38,4 +33,27 @@ export interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
   car: CarProps;
+}
+
+export interface SearchManufacturerProps {
+  manufacturer: string;
+  setManufacturer: (manufacturer: string) => void;
+}
+
+export interface FilterProps {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+}
+
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
 }

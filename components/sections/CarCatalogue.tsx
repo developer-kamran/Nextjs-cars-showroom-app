@@ -4,9 +4,16 @@ import { fetchCars } from '@/common/api';
 import CustomFilter from '@/components/widgets/CustomFilter';
 import SearchBar from '@/components/widgets/SearchBar';
 import CarCard from '@/components/widgets/CarCard';
+import { fuels, yearsOfProduction } from '@/common/constants';
 
-const CarCatalogue = async () => {
-  const allCars = await fetchCars();
+const CarCatalogue = async ({ searchParams }: any) => {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || '',
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || '',
+    model: searchParams.model || '',
+  });
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -19,8 +26,8 @@ const CarCatalogue = async () => {
       <div className='home__filters'>
         <SearchBar />
         <div className='home__filter-container'>
-          <CustomFilter />
-          <CustomFilter />
+          <CustomFilter title='fuel' options={fuels} />
+          <CustomFilter title='year' options={yearsOfProduction} />
         </div>
       </div>
 
