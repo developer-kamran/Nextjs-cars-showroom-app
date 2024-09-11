@@ -1,7 +1,7 @@
 import Hero from '../components/sections/Hero';
 import CarCatalogue from '@/components/sections/CarCatalogue';
 
-export default function Home({ searchParams }) {
+export default function Home({ searchParams }: any) {
   return (
     <main className='overflow-hidden'>
       <Hero />
